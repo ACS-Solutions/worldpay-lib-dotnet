@@ -1,0 +1,6 @@
+**/TestResults
+**/bin
+**/obj
+**/*.suo
+**/project.lock.json
+**/*.user
