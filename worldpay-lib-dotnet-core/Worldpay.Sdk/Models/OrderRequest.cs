@@ -1,77 +1,83 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Worldpay.Sdk.Models
+namespace Worldpay.Sdk
 {
-    [Serializable]
-    public class OrderRequest : AbstractOrder
-    {
-        public OrderRequest()
-        {
-            this.threeDSecureInfo = new ThreeDSecureInfo();
-        }
+	using Enums;
 
-        public string name { get; set; }
+	namespace Models
+	{
 
-        public Address billingAddress { get; set; }
+		[Serializable]
+		public class OrderRequest : AbstractOrder
+		{
+			public OrderRequest()
+			{
+				this.threeDSecureInfo = new ThreeDSecureInfo();
+			}
 
-        public DeliveryAddress deliveryAddress { get; set; }
+			public string name { get; set; }
 
-        public Dictionary<string, string> customerIdentifiers { get; set; }
+			public Address billingAddress { get; set; }
 
-        public string customerOrderCode { get; set; }
+			public DeliveryAddress deliveryAddress { get; set; }
 
-        public string orderCodeSuffix { get; set; }
+			public Dictionary<string, string> customerIdentifiers { get; set; }
 
-        public string orderCodePrefix { get; set; }
+			public string customerOrderCode { get; set; }
 
-        public string shopperLanguageCode { get; set; }
+			public string orderCodeSuffix { get; set; }
 
-        public bool reusable { get; set; }
+			public string orderCodePrefix { get; set; }
 
-        public AbstractPaymentMethod paymentMethod { get; set; }
+			public ISO639_1 shopperLanguageCode { get; set; }
 
-        public string orderType { get; set; }
+			public bool reusable { get; set; }
 
-        public ThreeDSecureInfo threeDSecureInfo { get; set; }
+			public AbstractPaymentMethod paymentMethod { get; set; }
 
-        public string shopperIpAddress
-        {
-            get { return threeDSecureInfo.shopperIpAddress; }
-            set { threeDSecureInfo.shopperIpAddress = value; }
-        }
+			public OrderType orderType { get; set; }
 
-        public string shopperSessionId
-        {
-            get { return threeDSecureInfo.shopperSessionId; }
-            set { threeDSecureInfo.shopperSessionId = value; }
-        }
+			public ThreeDSecureInfo threeDSecureInfo { get; set; }
 
-        public string shopperUserAgent
-        {
-            get { return threeDSecureInfo.shopperUserAgent; }
-            set { threeDSecureInfo.shopperUserAgent = value; }
-        }
+			public string shopperIpAddress
+			{
+				get { return threeDSecureInfo.shopperIpAddress; }
+				set { threeDSecureInfo.shopperIpAddress = value; }
+			}
 
-        public string shopperAcceptHeader
-        {
-            get { return threeDSecureInfo.shopperAcceptHeader; }
-            set { threeDSecureInfo.shopperAcceptHeader = value; }
-        }
+			public string shopperSessionId
+			{
+				get { return threeDSecureInfo.shopperSessionId; }
+				set { threeDSecureInfo.shopperSessionId = value; }
+			}
 
-        public bool is3DSOrder { get; set; }
+			public string shopperUserAgent
+			{
+				get { return threeDSecureInfo.shopperUserAgent; }
+				set { threeDSecureInfo.shopperUserAgent = value; }
+			}
 
-        public string successUrl { get; set; }
+			public string shopperAcceptHeader
+			{
+				get { return threeDSecureInfo.shopperAcceptHeader; }
+				set { threeDSecureInfo.shopperAcceptHeader = value; }
+			}
 
-        public string failureUrl { get; set; }
+			public bool is3DSOrder { get; set; }
 
-        public string cancelUrl { get; set; }
+			public string successUrl { get; set; }
 
-        public string pendingUrl { get; set; }
+			public string failureUrl { get; set; }
 
-        public string shopperEmailAddress { get; set; }
+			public string cancelUrl { get; set; }
 
-        public string statementNarrative { get; set; }
+			public string pendingUrl { get; set; }
 
-    }
+			public string shopperEmailAddress { get; set; }
+
+			public string statementNarrative { get; set; }
+
+		}
+	}
 }

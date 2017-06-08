@@ -1,4 +1,5 @@
-﻿using Worldpay.Sdk;
+﻿using System.Threading.Tasks;
+using Worldpay.Sdk;
 using Worldpay.Sdk.Models;
 
 namespace Worldpay.Sdk
@@ -10,13 +11,12 @@ namespace Worldpay.Sdk
     {
         public AuthService(Http http) : base(http) { }
 
-        /// <summary>
-        /// Get a temporary access token
-        /// </summary>
-        public TokenResponse GetToken(TokenRequest tokenRequest)
-        {
-            var tokenResponse = Http.Post<TokenRequest, TokenResponse>(Configuration.TokenUrl, tokenRequest);
-            return tokenResponse;
-        }
-    }
+		/// <summary>
+		/// Get a temporary access token
+		/// </summary>
+		public async Task<TokenResponse> GetToken( TokenRequest tokenRequest )
+		{
+			return await Http.Post<TokenRequest, TokenResponse>( Configuration.TokenUrl, tokenRequest );
+		}
+	}
 }

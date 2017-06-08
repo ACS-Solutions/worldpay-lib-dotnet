@@ -1,17 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace Worldpay.Sdk.Models
+namespace Worldpay.Sdk
 {
-    [Serializable]
-    public class TransferResponse
-    {
-        public List<TransferSummary> transfers { get; set; }
+	using Enums;
 
-        public int totalPages { get; set; }
+	namespace Models
+	{
+		[Serializable]
+		public class TransferResponse
+		{
+			public Guid transferId { get; set; }
 
-        public int numberOfElements { get; set; }
+			[Obsolete]
+			public TransferOrder[] orders { get; set; }
 
-        public int currentPageNumber { get; set; }
-    }
+			public Int32 batchId { get; set; }
+
+			public String merchantCode { get; set; }
+
+			public DateTime reportDate { get; set; }
+
+			public CurrencyCode settlementCurrency { get; set; }
+
+			public DateTime transferDate { get; set; }
+
+			public TransferDetail transferDetails { get; set; }
+
+			public MiscellaneousDetail[] miscellaneousDetails { get; set; }
+
+			public MiscellaneousDetail depositCorrectionDetail { get; set; }
+
+			public Int32 transferNetAmount { get; set; }
+
+			public CurrencyCode transferAmountCurrencyCode { get; set; }
+
+			public Int32 transferAmountCurrencyCodeExponent { get; set; }
+		}
+	}
 }

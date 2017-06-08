@@ -17,14 +17,14 @@ namespace Worldpay.Sdk
 		public string BaseUrl { get; set; }
 
 		/// <summary>
+		/// The merchant id corresponding to the service and client key
+		/// </summary>
+		public Guid MerchantId { get; set; }
+
+		/// <summary>
 		/// The secret key for service authorization
 		/// </summary>
 		public string ServiceKey { get; set; }
-
-		/// <summary>
-		/// The merchant id corresponding to the service and client key
-		/// </summary>
-		public string MerchantId { get; set; }
 
 		/// <summary>
 		/// The client key for service authorization
@@ -62,7 +62,7 @@ namespace Worldpay.Sdk
 				return Current.ServiceKey;
 			}
 		}
-		public static string MerchantId
+		public static Guid MerchantId
 		{
 			get
 			{

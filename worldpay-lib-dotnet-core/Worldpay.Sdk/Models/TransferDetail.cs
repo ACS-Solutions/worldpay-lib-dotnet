@@ -1,12 +1,19 @@
 ﻿using System;
 
-namespace Worldpay.Sdk.Models
+namespace Worldpay.Sdk
 {
-    [Serializable]
-    public class TransferDetail
-    {
-        public string transferId { get; set; }
+	using Enums;
 
-        public TransferOrder orders { get; set; }
-    }
+	namespace Models
+	{
+		[Serializable]
+
+		public class TransferDetail
+		{
+			public Settlement[] paymentsSettled { get; set; }
+			public Settlement[] paymentChargeBacks { get; set; }
+			public Settlement[] paymentReverseChargeBacks { get; set; }
+			public Settlement[] paymentRefunds { get; set; }
+		}
+	}
 }
