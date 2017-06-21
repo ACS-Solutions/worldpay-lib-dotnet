@@ -9,8 +9,18 @@ namespace Worldpay.Sdk
 		[Serializable]
 		public class TransferSummary
 		{
-			public Int32 netAmount { get; set; }
+			private Int32 _netAmount;
 
+			public Int32? netAmount {
+				get
+				{
+					return _netAmount;
+				}
+				set
+				{
+					_netAmount = value.HasValue ? value.Value : 0;
+				}
+			}
 			public CurrencyCode settlementCurrency { get; set; }
 
 			public Int32 settlementCurrencyExponent { get; set; }

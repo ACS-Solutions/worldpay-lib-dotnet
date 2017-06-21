@@ -227,10 +227,37 @@ namespace Worldpay.Sdk
 
 		private T HandleResponse<T>( Stream responseStream )
 		{
-			using( var reader = new StreamReader( responseStream ) )
+			Stream stm;
+			T result;
+
+#if DEBUG
+			using( stm = new MemoryStream() )
 			{
-				return GetJsonSerializer().Deserialize<T>( new JsonTextReader( reader ) );
+				responseStream.CopyTo( stm );
+				stm.Seek( 0, SeekOrigin.Begin );
+#else
+				stm = responseStream;
+#endif
+				using( var reader = new StreamReader( stm ) )
+				using( var jsonReader = new JsonTextReader( reader ) )
+				{
+					try
+					{
+						result = GetJsonSerializer().Deserialize<T>( jsonReader );
+					}
+					catch
+					{
+#if DEBUG
+						System.Diagnostics.Trace.TraceInformation( reader.ReadToEnd() );
+						stm.Seek( 0, SeekOrigin.Begin );
+#endif
+						throw;
+					}
+				}
+#if DEBUG
 			}
+#endif
+			return result;
 		}
 
 		private void HandleError( WebException exc )
