@@ -8,6 +8,8 @@
 		{
 			public string token { get; set; }
 
+			public OrderType orderType { get; set; }
+
 			public string orderDescription { get; set; }
 
 			public int? amount { get; set; }
@@ -21,6 +23,7 @@
 			public bool authorizeOnly { get; set; }
 
 			public int? authorizedAmount { get; set; }
+
 		}
 	}
 }

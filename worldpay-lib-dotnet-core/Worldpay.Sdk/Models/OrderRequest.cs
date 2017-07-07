@@ -36,8 +36,6 @@ namespace Worldpay.Sdk
 
 			public AbstractPaymentMethod paymentMethod { get; set; }
 
-			public OrderType orderType { get; set; }
-
 			public ThreeDSecureInfo threeDSecureInfo { get; set; }
 
 			public string shopperIpAddress

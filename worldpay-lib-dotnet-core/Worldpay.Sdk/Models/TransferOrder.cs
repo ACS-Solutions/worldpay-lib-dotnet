@@ -8,8 +8,6 @@ namespace Worldpay.Sdk.Models
 	[Obsolete]
 	public class TransferOrder : OrderResponse
 	{
-		public OrderType orderType { get; set; }
-
 		public int netAmount { get; set; }
 
 		public int commission { get; set; }
