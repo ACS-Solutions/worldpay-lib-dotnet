@@ -21,6 +21,8 @@ namespace Worldpay.Sdk.Enums
 		[EnumMember( Value = "NOT SUPPLIED BY SHOPPER" )]
 		NOT_SUPPLIED_BY_SHOPPER, // Missing, incomplete or invalid address details in the order prevented the address from being checked
 
-		FAILED // Both street and postal code details did not match the payment provider's records
+		FAILED, // Both street and postal code details did not match the payment provider's records
+
+		UNKNOWN // Observed in the wild, but not documented
 	}
 }

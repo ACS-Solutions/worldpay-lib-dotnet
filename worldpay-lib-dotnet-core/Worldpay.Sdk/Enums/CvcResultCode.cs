@@ -2,8 +2,8 @@
 
 namespace Worldpay.Sdk.Enums
 {
-    public enum CvcResultCode
-    {
+	public enum CvcResultCode
+	{
 		APPROVED, // The supplied CVC details matched the payment provider's records
 
 		[EnumMember( Value = "NOT SENT TO ACQUIRER" )]
@@ -19,5 +19,7 @@ namespace Worldpay.Sdk.Enums
 		NOT_SUPPLIED_BY_SHOPPER, // Missing, or invalid CVC in the payment details prevented the CVC from being checked
 
 		FAILED, // The supplied CVC did not match the payment provider's records
-    }
+
+		UNKNOWN // Observed in the wild, but not documented
+	}
 }
